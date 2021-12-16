@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Ex3 {
+public class Ex4 {
     public static boolean isPrime(int num) {
         if (num < 2) {
             return false;
@@ -24,10 +26,18 @@ public class Ex3 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Informe um número: ");
-        int num = scan.nextInt();
+        List<Integer> arrNumeros = new ArrayList<Integer>();
 
-        System.out.println(isPrime(num) ? "É primo" : "Não é primo");
+        System.out.println("Informe um número: ");
+        int m = scan.nextInt();
+
+        for (int i = 1; i <= m; i++) {
+            if (isPrime(i)) {
+                arrNumeros.add(i);
+            }
+        }
+
+        arrNumeros.stream().forEach(n -> System.out.println(n));
 
         scan.close();
     }
